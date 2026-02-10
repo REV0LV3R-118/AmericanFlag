@@ -1,0 +1,98 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.flag {
+  width: 1920px;
+  aspect-ratio: 19 / 10;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Stripes */
+.stripes {
+  height: 100%;
+  width: 100%;
+}
+
+.stripes a {
+  display: block;
+  height: calc(100% / 13);
+  width: 100%;
+  text-decoration: none;
+}
+
+.stripes a:nth-child(odd) {
+  background: #b22234; /* red */
+}
+
+.stripes a:nth-child(even) {
+  background: #ffffff; /* white */
+}
+.stripes a:hover,
+.stripes a:focus {
+  filter: brightness(1.1);
+  outline: none;
+}
+
+
+/* Union (blue canton) */
+.union {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 54%;
+  background: #3c3b6e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stars container */
+.stars {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.row.five {
+  padding: 0 40px; /* centers the 5-star rows under 7-star rows */
+}
+
+.row a {
+  width:36px;
+  height: 36px;
+  display: block;
+  background: white;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  text-decoration: none;
+}
+
+
+.row a:hover {
+  background: gold;
+  transform: scale(1.2);
+}
+
