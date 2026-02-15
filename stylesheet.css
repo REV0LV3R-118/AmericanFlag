@@ -58,22 +58,16 @@ body {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
+
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin: 12px 0;
-}
-
-.row.five {
-  padding: 0 40px; /* centers the 5-star rows under 7-star rows */
-}
-
+/* Tooltip hidden by default */
 .row a {
-  width:36px;
+  width: 36px;
   height: 36px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: white;
   clip-path: polygon(
     50% 0%,
@@ -88,11 +82,53 @@ body {
     39% 35%
   );
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  font-size: 7px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+
+  /* 👇 Makes stars slightly bigger visually */
+  transform: scale(1.6);
+  transform-origin: center;
 }
 
 
+
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.row.five {
+  padding: 0 40px; /* centers the 5-star rows under 7-star rows */
+}
+
+/* Hidden text inside star */
+.row a::after {
+  content: attr(data-state);
+  position: absolute;
+  opacity: 0;
+  padding: 2px;
+  line-height: 1;
+  text-align: center;
+  word-break: break-word;
+  width: 90%;
+  transition: opacity 0.2s ease;
+}
+
+/* Show text when hovering */
 .row a:hover {
   background: gold;
-  transform: scale(1.2);
 }
+
+.row a:hover::after {
+  opacity: 1;
+}
+
+
+
 
